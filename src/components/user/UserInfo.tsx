@@ -1,11 +1,26 @@
 import * as React from 'react';
 
-export interface UserInfoProps { userId: number; }
+import { User } from '../../types/user';
+
+interface UserInfoProps {
+    readonly currentUser: User;
+    readonly displayUser: User;
+}
+
+interface UserInfoHeaderProps {
+    readonly userName: string;
+}
+
+const UserInfoHeader = (props: UserInfoHeaderProps) => {
+    return (
+        <h1>{props.userName}</h1>
+    );
+};
 
 const UserInfo = (props: UserInfoProps) => {
     return (
         <div className="user-info">
-            <h1>{props.userId}</h1>
+            <UserInfoHeader userName={props.displayUser.displayName} />
         </div>
     );
 };

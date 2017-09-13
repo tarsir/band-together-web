@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux';
 import { UNSET_USER, SET_USER } from './action_types';
+import { User } from '../types/user';
 
-function currentUser(state = 1, action) {
+interface CurrentUserAction { type: string; currentUser: User; }
+
+function currentUser(state: User = null, action: CurrentUserAction) {
     switch (action.type) {
         case SET_USER:
-            return action.userId;
+            return action.currentUser;
         case UNSET_USER:
             return null;
         default:
