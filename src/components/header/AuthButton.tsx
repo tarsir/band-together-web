@@ -7,21 +7,21 @@ export interface AuthButtonProps {
 
 const AuthButton = (props: AuthButtonProps) => {
     let button = (
-        <Link className="header-auth-button" to="/login">
+        <Link className="button nav-link is-outlined" to="/login">
             Sign in here!
         </Link>
     );
 
     if (props.loggedIn) {
         button = (
-            <Link className="header-auth-button" to="/logout">
+            <Link className="nav-link is-outlined" to="/logout">
                 Sign out here!
             </Link>
         );
     }
 
     return (
-        <div>
+        <div className="navbar-item">
             {button}
         </div>
     );

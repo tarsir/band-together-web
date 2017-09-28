@@ -724,6 +724,10 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
 
+bulma@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.5.2.tgz#b5c4695075700b9539619555840d8f4f9f84b3a5"
+
 bytes@2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-2.5.0.tgz#4c9423ea2d252c270c41b2bdefeff9bb6b62c06a"
@@ -4409,6 +4413,10 @@ redux-logger@^3.0.6:
   resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-3.0.6.tgz#f7555966f3098f3c88604c449cf0baf5778274bf"
   dependencies:
     deep-diff "^0.3.5"
+
+redux-thunk@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
 
 redux@*, redux@^3.6.0:
   version "3.7.2"
