@@ -9,7 +9,7 @@ const Header = (props: HeaderProps) => {
     let greeting = <p>Hello there</p>;
 
     if (props.currentUser) {
-        greeting = <p>Hello, {props.currentUser.userId}</p>;
+        greeting = <p>Hello, {props.currentUser.id}</p>;
     }
 
     return (

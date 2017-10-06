@@ -97,7 +97,6 @@ module.exports = {
       '.jsx',
     ],
     alias: {
-      
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
@@ -153,6 +152,7 @@ module.exports = {
           /\.(js|jsx)(\?.*)?$/,
           /\.(ts|tsx)(\?.*)?$/,
           /\.css$/,
+          /\.less$/,
           /\.json$/,
           /\.bmp$/,
           /\.gif$/,
@@ -218,6 +218,19 @@ module.exports = {
           },
         ],
       },
+
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: "style-loader"
+          }, {
+            loader: "css-loader"
+          }, {
+            loader: "less-loader"
+          }
+        ]
+      }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.
     ],

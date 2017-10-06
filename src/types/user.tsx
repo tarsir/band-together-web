@@ -1,9 +1,10 @@
 interface User {
-    userId: number;
-    displayName: string;
-    firstName: string;
-    lastName: string;
+    id: number;
+    first_name: string;
+    last_name: string;
+    stage_name: string;
     email: string;
+    biography: string;
 }
 
 export {

@@ -1,42 +1,27 @@
 import { User } from '../types/user';
 
-const fakeUsers: User[] = [
-    {
-        userId: 1,
-        displayName: 'Joe Hogs',
-        firstName: 'Joe',
-        lastName: 'Hogs',
-        email: 'aa@aa.com'
-    },
-    {
-        userId: 2,
-        displayName: 'Bill Spill',
-        firstName: 'Bill',
-        lastName: 'Spill',
-        email: 'bb@aa.com'
-    },
-    {
-        userId: 3,
-        displayName: 'ZORK',
-        firstName: 'ZORK',
-        lastName: 'ZORK',
-        email: 'zork@zork.com'
-    }
-];
+const API_URL_DEV = 'http://127.0.0.1:4000';
 
 async function getUsers(): Promise<User[]> {
-    return new Promise<User[]>((resolve, reject) => {
-        resolve(fakeUsers);
-    });
+    const response = await fetch(API_URL_DEV + '/users');
+    const json = await response.json();
+    return json.data;
 }
 
-function getUserById(userId: number): User {
-    return fakeUsers.find((user) => {
-        return user.userId === userId;
-    });
+async function getUserById(userId: number): Promise<User> {
+    const response = await fetch(API_URL_DEV + '/users/' + userId);
+    const json = await response.json();
+    return json.data;
+}
+
+async function testApiCall(): Promise<object> {
+    const res = await fetch('http://127.0.0.1:4000/api/test');
+    const json = await res.json();
+    return json;
 }
 
 export {
     getUsers,
-    getUserById
+    getUserById,
+    testApiCall
 };

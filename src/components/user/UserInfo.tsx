@@ -8,19 +8,21 @@ interface UserInfoProps {
 }
 
 interface UserInfoHeaderProps {
-    readonly userName: string;
+    readonly displayName: string;
 }
 
 const UserInfoHeader = (props: UserInfoHeaderProps) => {
     return (
-        <h1>{props.userName}</h1>
+        <h1 className="user-info-header">{props.displayName}</h1>
     );
 };
 
 const UserInfo = (props: UserInfoProps) => {
     return (
-        <div className="user-info">
-            <UserInfoHeader userName={props.displayUser.displayName} />
+        <div className="columns">
+            <div className="user-info column is-half has-text-centered">
+                <UserInfoHeader displayName={props.displayUser.stage_name} />
+            </div>
         </div>
     );
 };
