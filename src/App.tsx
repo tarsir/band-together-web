@@ -7,8 +7,6 @@ import UserInfoC from './components/containers/UserInfoC';
 import UserListC from './components/user/UserListC';
 import HeaderC from './components/containers/HeaderC';
 
-import { testApiCall } from './api/users';
-
 const RoutingSwitch = () => {
   return (
     <section className="section">
@@ -24,10 +22,6 @@ const RoutingSwitch = () => {
 };
 
 class App extends React.Component {
-
-  componentDidMount() {
-    console.log(testApiCall());
-  }
 
   render() {
     return (

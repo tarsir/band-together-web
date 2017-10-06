@@ -47,7 +47,7 @@ const UserList = (props: UserListProps) => {
     return (
         <div className="user-list-container has-text-centered">
             <UserListHeader />
-            <UserListContainer userList={props.userList} />
+            <UserListContainer userList={props.userList}/>
         </div>
     );
 };

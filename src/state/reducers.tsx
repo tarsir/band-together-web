@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 import {
     USER_LIST_REQUEST,
-    USER_LIST_ERROR, USER_LIST_SUCCESS, UNSET_USER, SET_USER } from './action_types';
+    USER_LIST_ERROR,
+    USER_LIST_SUCCESS,
+    UNSET_USER,
+    SET_USER
+} from './action_types';
 import { User } from '../types/user';
 
 interface UserListAction { type: string; userList: User[]; timeOfReceipt: Date; }
@@ -17,7 +21,6 @@ function currentUser(state: number = 1, action: CurrentUserAction) {
             return state;
     }
 }
-
 interface UserListState {
     userList: User[];
     isFetching: boolean;
