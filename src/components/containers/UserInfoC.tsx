@@ -6,7 +6,7 @@ import { getUserById } from '../../api/users';
 const mapStateToProps = ( state: any, ownProps: any ) => {
     const displayUser: User = getUserById(state.userList.userList, ownProps.match.params.userId);
     return {
-        currentUser: state.currentUser,
+        currentUserId: state.currentUser,
         displayUser
     };
 };

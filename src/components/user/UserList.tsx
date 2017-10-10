@@ -4,7 +4,15 @@ import { Link } from 'react-router-dom';
 import { User } from '../../types/user';
 import './user.less';
 
-interface UserListProps {
+
+interface UserListStateProps {
+    userList: User[];
+}
+interface UserListDispatchProps {
+    fetchItems: () => any;
+}
+
+interface UserListContainerProps {
     userList: User[];
 }
 
@@ -12,6 +20,7 @@ interface UserItemPropsBase {
     user: User;
 }
 
+type UserListProps = UserListStateProps & UserListDispatchProps;
 type UserItemProps = UserItemPropsBase & React.HTMLProps<any>;
 
 class UserListItem extends React.Component<UserItemProps, {}> {
@@ -26,7 +35,7 @@ class UserListItem extends React.Component<UserItemProps, {}> {
     }
 }
 
-const UserListContainer = (props: UserListProps) => {
+const UserListContainer = (props: UserListContainerProps) => {
     const userItems = props.userList.map((user) => {
         return <UserListItem key={user.id} user={user} />;
     });
@@ -43,13 +52,21 @@ const UserListHeader = () => {
     );
 };
 
-const UserList = (props: UserListProps) => {
-    return (
-        <div className="user-list-container has-text-centered">
-            <UserListHeader />
-            <UserListContainer userList={props.userList}/>
-        </div>
-    );
-};
+// because this component is connected, the props interface must be an
+// intersection type of state props & dispatch props
+class UserList extends React.Component<UserListProps, {}> {
+    componentDidMount() {
+        this.props.fetchItems();
+    }
+
+    render() {
+        return (
+            <div className="user-list-container has-text-centered">
+                <UserListHeader />
+                <UserListContainer userList={this.props.userList}/>
+            </div>
+        );
+    }
+}
 
 export default UserList;

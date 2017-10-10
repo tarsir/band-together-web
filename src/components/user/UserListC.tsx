@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { getUserList } from '../../state/actions';
 import UserList from './UserList';
 
 const mapStateToProps = ( state: any ) => {
@@ -7,8 +8,15 @@ const mapStateToProps = ( state: any ) => {
     };
 };
 
+const mapDispatchToProps = (dispatch: Function) => {
+    return {
+        fetchItems: () => dispatch(getUserList())
+    };
+};
+
 const UserListC = connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(UserList);
 
 export default UserListC;
