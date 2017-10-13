@@ -5,8 +5,16 @@ interface User {
     stage_name: string;
     email: string;
     biography: string;
+    talents: Talent[];
+}
+
+interface Talent {
+    id: number;
+    title: string;
+    img_filepath: string;
 }
 
 export {
-    User
+    User,
+    Talent
 };

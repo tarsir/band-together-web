@@ -8,10 +8,10 @@ async function getUsers(): Promise<User[]> {
     return json.data;
 }
 
-function getUserById(userList: User[], userId: number): User {
-    return userList.find((user) => {
-        return user.id == userId;
-    });
+async function getUserById(userId: number): Promise<User> {
+    const response = await fetch(API_URL_DEV + '/users/' + userId);
+    const json = await response.json();
+    return json.data;
 }
 
 export {
