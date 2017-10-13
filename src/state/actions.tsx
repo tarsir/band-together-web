@@ -1,12 +1,15 @@
 import {
     SET_USER,
     UNSET_USER,
+    USER_DATA_REQUEST,
+    USER_DATA_SUCCESS,
+    USER_DATA_ERROR,
     USER_LIST_REQUEST,
     USER_LIST_SUCCESS,
     USER_LIST_ERROR
 } from './action_types';
 
-import { getUsers } from '../api/users';
+import { getUsers, getUserById } from '../api/users';
 import { User } from '../types/user';
 
 function setUser(userId: number) {
@@ -19,6 +22,26 @@ function setUser(userId: number) {
 function unsetUser() {
     return {
         type: UNSET_USER
+    };
+}
+
+function requestUserData() {
+    return {
+        type: USER_DATA_REQUEST
+    };
+}
+
+function receiveUserData(userData: User) {
+    return {
+        type: USER_DATA_SUCCESS,
+        userData,
+        timeOfReceipt: Date.now()
+    };
+}
+
+function userDataError() {
+    return {
+        type: USER_DATA_ERROR
     };
 }
 
@@ -59,8 +82,25 @@ function getUserList() {
     };
 }
 
+function getUserData(userId: number) {
+    return (dispatch) => {
+        dispatch(requestUserData());
+
+        return getUserById(userId)
+            .then(
+                response => response,
+                error => dispatch(userDataError())
+            ).then(
+                json => {
+                    dispatch(receiveUserData(json));
+                }
+            );
+    };
+}
+
 export {
     setUser,
     unsetUser,
-    getUserList
+    getUserList,
+    getUserData
 };

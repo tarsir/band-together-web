@@ -3,12 +3,16 @@ import {
     USER_LIST_REQUEST,
     USER_LIST_ERROR,
     USER_LIST_SUCCESS,
+    USER_DATA_REQUEST,
+    USER_DATA_SUCCESS,
+    USER_DATA_ERROR,
     UNSET_USER,
     SET_USER
 } from './action_types';
 import { User } from '../types/user';
 
 interface UserListAction { type: string; userList: User[]; timeOfReceipt: Date; }
+interface UserDataAction { type: string; userData: User; timeOfReceipt: Date; }
 interface CurrentUserAction { type: string; currentUser: User; }
 
 function currentUser(state: number = 1, action: CurrentUserAction) {
@@ -21,6 +25,20 @@ function currentUser(state: number = 1, action: CurrentUserAction) {
             return state;
     }
 }
+interface UserDataState {
+    userData: User;
+    isFetching: boolean;
+    isValid: boolean;
+    lastUpdated: Date;
+}
+
+const initialUserData: UserDataState = {
+    userData: null,
+    isFetching: false,
+    isValid: false,
+    lastUpdated: null
+};
+
 interface UserListState {
     userList: User[];
     isFetching: boolean;
@@ -55,7 +73,38 @@ function userList(
             });
         case USER_LIST_ERROR:
             return Object.assign({}, state, {
+                userList: [],
                 isFetching: false,
+                isValid: false,
+                lastUpdated: action.timeOfReceipt
+            });
+        default:
+            return state;
+    }
+}
+
+function userData(
+    state: UserDataState = initialUserData,
+    action: UserDataAction
+) {
+    switch (action.type) {
+        case USER_DATA_REQUEST:
+            return Object.assign({}, state, {
+                userData: action.userData,
+                isFetching: true,
+                isValid: false
+            });
+        case USER_DATA_SUCCESS:
+            return Object.assign({}, state, {
+                userData: action.userData,
+                isFetching: false,
+                isValid: true,
+                lastUpdated: action.timeOfReceipt
+            });
+        case USER_DATA_ERROR:
+            return Object.assign({}, state, {
+                userData: action.userData,
+                isFetching: true,
                 isValid: false,
                 lastUpdated: action.timeOfReceipt
             });
@@ -66,7 +115,8 @@ function userList(
 
 const bandTogether = combineReducers({
     currentUser,
-    userList
+    userList,
+    userData
 });
 
 export default bandTogether;
