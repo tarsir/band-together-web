@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { User } from '../../types/user';
 import './user.less';
 
-
 interface UserListStateProps {
     userList: User[];
 }
@@ -36,9 +35,12 @@ class UserListItem extends React.Component<UserItemProps, {}> {
 }
 
 const UserListContainer = (props: UserListContainerProps) => {
-    const userItems = props.userList.map((user) => {
-        return <UserListItem key={user.id} user={user} />;
-    });
+    let userItems;
+    if (props.userList.length) {
+        userItems = props.userList.map((user) => {
+            return <UserListItem key={user.id} user={user} />;
+        });
+    }
     return (
         <ul>
             {userItems}
