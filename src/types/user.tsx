@@ -1,3 +1,5 @@
+import Location from './location';
+
 interface User {
     id: number;
     first_name: string;
@@ -6,6 +8,7 @@ interface User {
     email: string;
     biography: string;
     talents: Talent[];
+    location: Location;
 }
 
 interface Talent {
