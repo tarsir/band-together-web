@@ -33,7 +33,8 @@ const UserInfoDetails = (props: UserInfoDetailsProps) => {
         <div>
             <table className="user-info-table">
                 <tr>
-                    <td colSpan={2}>{props.displayUser.first_name} {props.displayUser.last_name}</td>
+                    <td>Name: </td>
+                    <td>{props.displayUser.first_name} {props.displayUser.last_name}</td>
                 </tr>
                 <tr>
                     <td>Country: </td>
@@ -68,7 +69,7 @@ class UserInfo extends React.Component<UserInfoProps, {}> {
     render() {
         if (this.props.displayUser.isValid) {
             return (
-                <div className="columns">
+                <div className="columns is-centered">
                     <div className="user-info column is-half has-text-centered">
                         <UserInfoHeader displayName={this.props.displayUser.userData.stage_name} />
                         <UserInfoDetails displayUser={this.props.displayUser.userData} />
