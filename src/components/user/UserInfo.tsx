@@ -31,8 +31,31 @@ const UserInfoHeader = (props: UserInfoHeaderProps) => {
 const UserInfoDetails = (props: UserInfoDetailsProps) => {
     return (
         <div>
-            <div>{props.displayUser.first_name} {props.displayUser.last_name}</div>
-            <TalentList talents={props.displayUser.talents} />
+            <table className="user-info-table">
+                <tr>
+                    <td colSpan={2}>{props.displayUser.first_name} {props.displayUser.last_name}</td>
+                </tr>
+                <tr>
+                    <td>Country: </td>
+                    <td>{props.displayUser.location.country}</td>
+                </tr>
+                <tr>
+                    <td>State: </td>
+                    <td>{props.displayUser.location.state}</td>
+                </tr>
+                <tr>
+                    <td>City: </td>
+                    <td>{props.displayUser.location.city}</td>
+                </tr>
+                <tr>
+                    <td>Bio: </td>
+                    <td>{props.displayUser.biography}</td>
+                </tr>
+                <tr>
+                    <td>Talents: </td>
+                    <td><TalentList talents={props.displayUser.talents} /></td>
+                </tr>
+            </table>
         </div>
     );
 };
