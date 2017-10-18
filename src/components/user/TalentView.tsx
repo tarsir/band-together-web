@@ -12,10 +12,12 @@ interface TalentListProps {
 
 const TalentView = (props: TalentViewProps) => {
     return (
-        <div>
-            <h1>{props.talent.title}</h1>
-            <p>{props.talent.img_filepath}</p>
-        </div>
+        <li>
+            <div className="talent-view">
+                <h1>{props.talent.title}</h1>
+                <img src={require('../../assets/images/' + props.talent.img_filepath)} />
+            </div>
+        </li>
     );
 };
 

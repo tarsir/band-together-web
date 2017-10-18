@@ -1,4 +1,4 @@
-import { Talent } from '../types/talent';
+import { Talent } from '../types/user';
 
 const API_URL_DEV = 'http://127.0.0.1:4000';
 
