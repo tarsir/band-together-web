@@ -23,9 +23,13 @@ const PortfolioView = (props: PortfolioViewProps) => {
 };
 
 const PortfolioList = (props: PortfolioListProps) => {
-    let portfolios = props.portfolios.map((portfolio) => {
-        return <PortfolioView key={portfolio.id} portfolio={portfolio} />;
-    });
+    let portfolios;
+
+    if (props.portfolios) {
+        portfolios = props.portfolios.map((portfolio) => {
+            return <PortfolioView key={portfolio.id} portfolio={portfolio} />;
+        });
+    }
     return (
         <ul>
             {portfolios}
