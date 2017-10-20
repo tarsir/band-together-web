@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import UserInfo from '../user/UserInfo';
+import UserInfo from './UserInfo';
 import { getUserData } from '../../state/actions';
 
 const mapStateToProps = ( state: any) => {

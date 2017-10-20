@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { User } from '../../types/user';
 import TalentList from './TalentView';
-import PortfolioList from './PortfolioView';
+import PortfolioList from '../portfolio/PortfolioView';
 
 interface UserInfoStateProps {
     currentUserId: number;
