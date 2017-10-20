@@ -8,6 +8,7 @@ interface User {
     email: string;
     biography: string;
     talents: Talent[];
+    portfolios: Portfolio[];
     location: Location;
 }
 
@@ -17,7 +18,14 @@ interface Talent {
     img_filepath: string;
 }
 
+interface Portfolio {
+    id: number;
+    title: string;
+    url: string;
+}
+
 export {
     User,
-    Talent
+    Talent,
+    Portfolio
 };

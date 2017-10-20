@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { User } from '../../types/user';
 import TalentList from './TalentView';
+import PortfolioList from './PortfolioView';
 
 interface UserInfoStateProps {
     currentUserId: number;
@@ -55,6 +56,10 @@ const UserInfoDetails = (props: UserInfoDetailsProps) => {
                 <tr>
                     <td>Talents: </td>
                     <td><TalentList talents={props.displayUser.talents} /></td>
+                </tr>
+                <tr>
+                    <td>Portfolio: </td>
+                    <td><PortfolioList portfolios={props.displayUser.portfolios} /></td>
                 </tr>
             </table>
         </div>
