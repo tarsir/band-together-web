@@ -24,12 +24,24 @@ type BandItemProps = BandItemPropsBase & React.HTMLProps<any>;
 
 class BandListItem extends React.Component<BandItemProps, {}> {
     render() {
+        let memberCount = 0;
+        if (this.props.band.members) {
+            memberCount = this.props.band.members.length;
+        }
         return (
-            <li className="band-listing">
-                <Link to={`/bands/${this.props.band.id}`}>
-                    {this.props.band.stage_name}
-                </Link>
-            </li>
+            <tr className="band-listing">
+                <td>
+                    <Link to={`/bands/${this.props.band.id}`}>
+                        {this.props.band.stage_name}
+                    </Link>
+                </td>
+                <td>
+                    {this.props.band.description}
+                </td>
+                <td className="is-centered">
+                    {memberCount}
+                </td>
+            </tr>
         );
     }
 }
@@ -42,9 +54,16 @@ const BandListContainer = (props: BandListContainerProps) => {
         });
     }
     return (
-        <ul>
-            {bandItems}
-        </ul>
+        <table className="table is-fullwidth">
+            <thead>
+                <th>Band Name</th>
+                <th>Description</th>
+                <th># Members</th>
+            </thead>
+            <tbody>
+                {bandItems}
+            </tbody>
+        </table>
     );
 };
 

@@ -24,12 +24,21 @@ type UserItemProps = UserItemPropsBase & React.HTMLProps<any>;
 
 class UserListItem extends React.Component<UserItemProps, {}> {
     render() {
+        let talentCount = 0;
+        if (this.props.user.talents) {
+            talentCount = this.props.user.talents.length;
+        }
         return (
-            <li className="user-listing">
-                <Link to={`/users/${this.props.user.id}`}>
-                    {this.props.user.first_name + this.props.user.last_name}
-                </Link>
-            </li>
+            <tr className="user-listing">
+                <td>
+                    <Link to={`/users/${this.props.user.id}`}>
+                        {this.props.user.first_name + " " + this.props.user.last_name}
+                    </Link>
+                </td>
+                <td>
+                    {talentCount}
+                </td>
+            </tr>
         );
     }
 }
@@ -42,9 +51,15 @@ const UserListContainer = (props: UserListContainerProps) => {
         });
     }
     return (
-        <ul>
-            {userItems}
-        </ul>
+        <table className="table is-fullwidth">
+            <thead>
+                <th>Stage Name</th>
+                <th>Skills</th>
+            </thead>
+            <tbody>
+                {userItems}
+            </tbody>
+        </table>
     );
 };
 
