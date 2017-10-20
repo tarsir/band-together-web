@@ -25,6 +25,9 @@ const Header = (props: HeaderProps) => {
                         <Link className="navbar-item" to="/users">
                             User List
                         </Link>
+                        <Link className="navbar-item" to="/bands">
+                            Band List
+                        </Link>
                     </div>
                     <div className="navbar-end">
                         <AuthButtonC />
