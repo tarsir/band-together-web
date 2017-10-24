@@ -16,7 +16,7 @@ type BandMemberProps = BandMemberPropsBase & React.HTMLProps<any>;
 const BandMemberItem = (props: BandMemberProps) => {
     return (
         <li>
-            <Link to={`users/${props.member.id}`}>
+            <Link to={`/users/${props.member.id}`}>
                 {props.member.first_name + ' ' + props.member.last_name}
             </Link>
         </li>
