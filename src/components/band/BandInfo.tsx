@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { Band } from '../../types/band';
+import { BandMembers } from './BandMembers';
 import PortfolioList from '../portfolio/PortfolioView';
 
 interface BandInfoStateProps {
@@ -51,6 +52,10 @@ const BandInfoDetails = (props: BandInfoDetailsProps) => {
                 <tr>
                     <td>Portfolio: </td>
                     <td><PortfolioList portfolios={props.displayBand.portfolios} /></td>
+                </tr>
+                <tr>
+                    <td>Users: </td>
+                    <td><BandMembers memberList={props.displayBand.members} /></td>
                 </tr>
             </table>
         </div>

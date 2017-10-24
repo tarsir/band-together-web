@@ -32,7 +32,7 @@ class UserListItem extends React.Component<UserItemProps, {}> {
             <tr className="user-listing">
                 <td>
                     <Link to={`/users/${this.props.user.id}`}>
-                        {this.props.user.first_name + " " + this.props.user.last_name}
+                        {this.props.user.first_name + ' ' + this.props.user.last_name}
                     </Link>
                 </td>
                 <td>
