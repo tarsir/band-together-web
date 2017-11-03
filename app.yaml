@@ -1,0 +1,16 @@
+env: flex
+runtime: nodejs
+
+env_variables:
+  APP_API_URL: 'https://band-together-app.herokuapp.com'
+
+# [START handlers]
+handlers:
+ - url: /
+   static_files: build/index.html
+   upload: build/index.html
+
+ - url: /(.*)
+   static_files: build/\1
+   upload: build/(.*)
+# [END handlers]

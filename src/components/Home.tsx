@@ -6,7 +6,11 @@ const Home = () => {
         <div className="home-container has-text-centered">
             <h1 className="home-header">Welcome to Band Together!</h1>
 
-            <p>Something something something something.</p>
+            <p>
+                Band Together is a musician social media platform where musicians can connect with others.
+            </p><p>
+                Because when you band together, you band better.
+            </p>
         </div>
     );
 };

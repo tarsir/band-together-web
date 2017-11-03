@@ -1,0 +1,1 @@
+gsutil rsync -r build gs://band-together-web

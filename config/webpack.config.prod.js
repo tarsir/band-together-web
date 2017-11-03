@@ -97,7 +97,6 @@ module.exports = {
       '.jsx',
     ],
     alias: {
-      
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
@@ -109,6 +108,10 @@ module.exports = {
       // please link the files into your node_modules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
       new ModuleScopePlugin(paths.appSrc),
+      new ExtractTextPlugin({
+        filename: "[name].[contenthash].css",
+        disable: process.env.NODE_ENV === 'development'
+      })
     ],
   },
   module: {
@@ -227,6 +230,16 @@ module.exports = {
         ),
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
       },
+      {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            "css-loader",
+            "less-loader"
+          ],
+          fallback: "style-loader"
+        })
+      }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "file" loader exclusion list.
     ],
