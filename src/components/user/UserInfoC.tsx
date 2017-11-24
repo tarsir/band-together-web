@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import UserInfo from './UserInfo';
-import { getUserData } from '../../state/actions';
+import { getUserData } from '../../state/users/actions';
 
 const mapStateToProps = ( state: any) => {
     return {
-        currentUserId: state.currentUser,
-        displayUser: state.userData
+        currentUserId: state.auth.userId,
+        displayUser: state.users.userData
     };
 };
 

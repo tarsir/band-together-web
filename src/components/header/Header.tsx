@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { User } from '../../types/user';
-import AuthButtonC from '../containers/AuthButtonC';
+import AuthButtonC from './AuthButtonC';
 
 export interface HeaderProps { currentUser: User; }
 

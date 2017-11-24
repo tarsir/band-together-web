@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { getBandList } from '../../state/actions';
+import { getBandList } from '../../state/bands/actions';
 import BandList from './BandList';
 
 const mapStateToProps = ( state: any ) => {
     return {
-        bandList: state.bandList.bandList
+        bandList: state.bands.bandList.bandList
     };
 };
 

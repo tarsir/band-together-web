@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import BandInfo from './BandInfo';
-import { getBandData } from '../../state/actions';
+import { getBandData } from '../../state/bands/actions';
 
 const mapStateToProps = ( state: any) => {
     return {
-        currentBandId: state.currentBand,
-        displayBand: state.bandData
+        currentBandId: state.bands.currentBand,
+        displayBand: state.bands.bandData
     };
 };
 

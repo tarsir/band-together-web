@@ -2,7 +2,7 @@
   "name": "band_together",
   "version": "0.1.0",
   "engines": {
-    "node" : ">=6.11"
+    "node": ">=6.11"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +24,7 @@
     "extract-text-webpack-plugin": "2.1.2",
     "file-loader": "^1.1.5",
     "fs-extra": "3.0.1",
+    "history": "^4.7.2",
     "html-webpack-plugin": "2.28.0",
     "jest": "20.0.3",
     "less": "^2.7.2",
@@ -36,8 +37,10 @@
     "react-dev-utils": "^3.0.1",
     "react-dom": "^15.6.1",
     "react-error-overlay": "^1.0.8",
+    "react-inform": "^0.2.3",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "react-router-redux": "next",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "source-map-loader": "^0.2.1",
